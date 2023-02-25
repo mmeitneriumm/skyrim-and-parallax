@@ -5,7 +5,7 @@
 }
 
 :root{
-    --index: calc(1vw + 1vh)
+    --index: calc(1vw + 1vh);
 }
 
 @font-face {
@@ -22,6 +22,19 @@ body{
 
 .main-header{
     position:relative;
+}
+
+.main-header::after{
+    content: '';
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: calc(var(--index) * 10);
+    background-image: url(../img/ground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: calc(var(--index) * -4.7);
 }
 
 .layers{
@@ -74,5 +87,36 @@ body{
     letter-spacing: calc(var(--index) / 4);
 }
 .main-article{
+    --main-article-transform: translate3d(0, calc(var(--scrollTop) / 20), 0);
+    position: relative;
     height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: black 1px 0 10px;
+}
+
+.main-article__header{
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1.8);
+    letter-spacing: calc(var(--index) / 7.5);
+    transform: var(--main-article-transform);
+}
+
+.main-article__paragraph{
+    max-width: calc(var(--index) * 30);
+    font-size: calc(var(--index) * .8);
+    transform: var(--main-article-transform);
+}
+
+.copy{
+    position: absolute;
+    bottom: calc(var(--index) * 2.5);
+    opacity: 0.4;
+    font-size: calc(var(--index) * .75);
+    letter-spacing: calc(var(--index) / 35);
 }
